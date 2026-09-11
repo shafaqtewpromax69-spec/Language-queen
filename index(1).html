@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Language — Auto-Graded Practice Exam</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1d222b; --text:#f5f7fb; --muted:#a9b0bd;
+    --accent:#7dd3fc; --good:#86efac; --bad:#fca5a5; --line:#2c3441;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#0c0e12,#11151b);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.5}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 18px 70px}
+  h1{font-size:32px;margin:0 0 4px}
+  .sub{color:var(--muted);margin-bottom:24px}
+  .notice{background:#141922;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0 24px;color:#d7dde7}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .tab{border:1px solid var(--line);background:var(--panel);color:#dbe3ef;padding:10px 14px;border-radius:999px;cursor:pointer}
+  .tab.active{border-color:var(--accent);color:#fff;box-shadow:0 0 0 1px rgba(125,211,252,.25) inset}
+  section{display:none}
+  section.active{display:block}
+  .card{background:rgba(23,26,33,.96);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+  .qhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+  .qnum{font-weight:700}
+  .marks{color:var(--accent);font-size:14px;white-space:nowrap}
+  .prompt{margin:9px 0 12px}
+  .opt{display:block;padding:8px 10px;border:1px solid var(--line);border-radius:10px;margin:7px 0;cursor:pointer}
+  .opt:hover{background:#202633}
+  input[type=text], textarea{
+    width:100%;background:#0f1319;color:#fff;border:1px solid #384151;border-radius:11px;
+    padding:11px 12px;font:inherit;outline:none;
+  }
+  textarea{min-height:120px;resize:vertical}
+  input[type=text]:focus, textarea:focus{border-color:var(--accent)}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  button{
+    border:0;border-radius:12px;padding:11px 16px;font-weight:700;cursor:pointer;
+    background:var(--accent);color:#071018;
+  }
+  button.secondary{background:#252c38;color:#eef3f9;border:1px solid #3a4453}
+  .scorebox{display:none;background:#141a22;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:20px}
+  .scorebig{font-size:30px;font-weight:800}
+  .good{color:var(--good)} .bad{color:var(--bad)}
+  .feedback{margin-top:8px;color:#c9d0db}
+  .tiny{font-size:13px;color:var(--muted)}
+  .badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#232a35;color:#cbd5e1;font-size:12px}
+  .manual{background:#11161d;border:1px dashed #3a4453;border-radius:12px;padding:12px;color:#cfd6e0;margin-top:10px}
+  .result{margin-top:10px;padding:10px;border-radius:10px;background:#12171e;border:1px solid var(--line)}
+  .correct{border-color:#2b5b3a;background:#122018}.incorrect{border-color:#6a3434;background:#201313}
+  .footer{margin-top:24px;color:var(--muted);font-size:13px}
+  .sticky{position:sticky;bottom:12px;display:flex;justify-content:center;pointer-events:none}
+  .sticky button{pointer-events:auto;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  @media(max-width:700px){h1{font-size:25px}.qhead{flex-direction:column}.marks{align-self:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>English Language — Auto-Graded Practice Exam</h1>
+  <div class="sub">Grammar + Comprehension + Creative Writing + Secondary English recall. <span class="badge">Meanings removed</span></div>
+
+  <div class="notice">
+    <b>How this works:</b> objective grammar/comprehension questions are auto-marked.
+    Creative writing gets a quick rubric-based score. Secondary English uses Unit + Question labels because
+    the exact textbook questions/answers aren't available here, so those are self-check items rather than fake “AI grading.”
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('grammar',this)">1. Grammar</button>
+    <button class="tab" onclick="showTab('comp',this)">2. Comprehension</button>
+    <button class="tab" onclick="showTab('creative',this)">3. Creative</button>
+    <button class="tab" onclick="showTab('secondary',this)">4. Secondary English</button>
+  </div>
+
+  <section id="grammar" class="active">
+    <div class="card"><b>Grammar — 20 marks</b><div class="tiny">Answer all questions.</div></div>
+
+    <div class="card q" data-answer="adjective" data-points="1">
+      <div class="qhead"><div class="qnum">Q1</div><div class="marks">1 mark</div></div>
+      <div class="prompt">Identify the clause in bold: “The student <b>who won the prize</b> thanked his teacher.”</div>
+      <label class="opt"><input type="radio" name="g1" value="adjective"> Adjective clause</label>
+      <label class="opt"><input type="radio" name="g1" value="adverb"> Adverb clause</label>
+      <label class="opt"><input type="radio" name="g1" value="noun"> Noun clause</label>
+      <label class="opt"><input type="radio" name="g1" value="main"> Main clause</label>
+    </div>
+
+    <div class="card q" data-answer="adverb" data-points="1">
+      <div class="qhead"><div class="qnum">Q2</div><div class="marks">1 mark</div></div>
+      <div class="prompt">Identify the type of clause: “We stayed indoors <b>because it was raining</b>.”</div>
+      <label class="opt"><input type="radio" name="g2" value="adjective"> Adjective clause</label>
+      <label class="opt"><input type="radio" name="g2" value="adverb"> Adverb clause</label>
+      <label class="opt"><input type="radio" name="g2" value="noun"> Noun clause</label>
+      <label class="opt"><input type="radio" name="g2" value="main"> Main clause</label>
+    </div>
+
+    <div class="card q" data-answer="complex" data-points="1">
+      <div class="qhead"><div class="qnum">Q3</div><div class="marks">1 mark</div></div>
+      <div class="prompt">“Although he was tired, he finished the work.” This is a:</div>
+      <label class="opt"><input type="radio" name="g3" value="simple"> Simple sentence</label>
+      <label class="opt"><input type="radio" name="g3" value="compound"> Compound sentence</label>
+      <label class="opt"><input type="radio" name="g3" value="complex"> Complex sentence</label>
+      <label class="opt"><input type="radio" name="g3" value="compoundcomplex"> Compound-complex sentence</label>
+    </div>
+
+    <div class="card q" data-answer="compound" data-points="1">
+      <div class="qhead"><div class="qnum">Q4</div><div class="marks">1 mark</div></div>
+      <div class="prompt">“I wanted to go, but the rain started.” This is a:</div>
+      <label class="opt"><input type="radio" name="g4" value="simple"> Simple sentence</label>
+      <label class="opt"><input type="radio" name="g4" value="compound"> Compound sentence</label>
+      <label class="opt"><input type="radio" name="g4" value="complex"> Complex sentence</label>
+      <label class="opt"><input type="radio" name="g4" value="compoundcomplex"> Compound-complex sentence</label>
+    </div>
+
+    <div class="card q" data-answer="adverb" data-points="1">
+      <div class="qhead"><div class="qnum">Q5</div><div class="marks">1 mark</div></div>
+      <div class="prompt">In “She spoke quietly,” the word <b>quietly</b> is a:</div>
+      <label class="opt"><input type="radio" name="g5" value="adjective"> Adjective</label>
+      <label class="opt"><input type="radio" name="g5" value="adverb"> Adverb</label>
+      <label class="opt"><input type="radio" name="g5" value="noun"> Noun</label>
+      <label class="opt"><input type="radio" name="g5" value="conjunction"> Conjunction</label>
+    </div>
+
+    <div class="card q" data-answer="noun" data-points="1">
+      <div class="qhead"><div class="qnum">Q6</div><div class="marks">1 mark</div></div>
+      <div class="prompt">Identify the clause: “I know <b>that she is honest</b>.”</div>
+      <label class="opt"><input type="radio" name="g6" value="noun"> Noun clause</label>
+      <label class="opt"><input type="radio" name="g6" value="adjective"> Adjective clause</label>
+      <label class="opt"><input type="radio" name="g6" value="adverb"> Adverb clause</label>
+      <label class="opt"><input type="radio" name="g6" value="main"> Main clause</label>
+    </div>
+
+    <div class="card q" data-answer="althoughhewas" data-points="2">
+      <div class="qhead"><div class="qnum">Q7</div><div class="marks">2 marks</div></div>
+      <div class="prompt">Rewrite as a complex sentence: “He was tired. He continued working.”</div>
+      <input type="text" id="g7" placeholder="Type your sentence">
+      <div class="tiny">Auto-check accepts common correct forms such as “Although he was tired, he continued working.”</div>
+    </div>
+
+    <div class="card q" data-answer="but" data-points="2">
+      <div class="qhead"><div class="qnum">Q8</div><div class="marks">2 marks</div></div>
+      <div class="prompt">Join these into a compound sentence using a suitable coordinating conjunction: “I studied hard. I was still nervous.”</div>
+      <input type="text" id="g8" placeholder="Type your sentence">
+      <div class="tiny">Expected idea: two independent clauses joined with a coordinating conjunction such as “but”.</div>
+    </div>
+
+    <div class="card q" data-answer="relative" data-points="2">
+      <div class="qhead"><div class="qnum">Q9</div><div class="marks">2 marks</div></div>
+      <div class="prompt">Name the category of adjective clause used in: “The boy <b>who lives next door</b> is my friend.”</div>
+      <input type="text" id="g9" placeholder="e.g. relative clause">
+    </div>
+
+    <div class="card q" data-answer="becausealthoughwhileunless" data-points="4">
+      <div class="qhead"><div class="qnum">Q10</div><div class="marks">4 marks</div></div>
+      <div class="prompt">Write a suitable subordinating conjunction for each blank (one each):<br>
+      a) ___ it was late, they continued studying.<br>
+      b) I will go ___ you agree.<br>
+      c) ___ he was ill, he attended the meeting.<br>
+      d) Keep quiet ___ the teacher arrives.</div>
+      <textarea id="g10" placeholder="a) ...&#10;b) ...&#10;c) ...&#10;d) ..."></textarea>
+      <div class="tiny">Any grammatically suitable equivalent may receive credit; the quick auto-check looks for common forms.</div>
+    </div>
+
+    <div class="btnrow"><button onclick="gradeGrammar()">Grade Grammar</button></div>
+    <div id="grammarScore" class="scorebox"></div>
+  </section>
+
+  <section id="comp">
+    <div class="card"><b>Comprehension — 20 marks</b><div class="tiny">Read the passage and answer the questions.</div></div>
+    <div class="card">
+      <p><b>Passage</b></p>
+      <p>When the school announced a “quiet hour” after lunch, most students expected the usual kind of silence: a teacher standing nearby and everyone pretending to work. Instead, the library became the centre of the experiment. Students could read, revise, draw diagrams or simply sit without using their phones. At first, many found the hour uncomfortable. Without the constant stream of messages and short videos, even ten minutes seemed unusually long.</p>
+      <p>By the third day, however, something changed. Several students said they had finished work faster than usual because they were not switching between tasks every few minutes. Others discovered that they actually enjoyed reading when there was no pressure to post about it. The librarian noticed that students were also speaking more quietly when the hour ended, as if the calm had followed them outside.</p>
+      <p>The experiment was not perfect. Some students still struggled to concentrate, and others simply stared at the clock. Yet the school concluded that the point was not to make every student productive every minute. The real lesson was that attention is easier to protect when distractions are removed deliberately rather than when people merely promise themselves to “try harder.”</p>
+    </div>
+
+    <div class="card q">
+      <div class="qhead"><div class="qnum">Q1</div><div class="marks">2 marks</div></div>
+      <div class="prompt">Why did many students initially find the quiet hour uncomfortable?</div>
+      <textarea id="c1"></textarea>
+    </div>
+    <div class="card q">
+      <div class="qhead"><div class="qnum">Q2</div><div class="marks">3 marks</div></div>
+      <div class="prompt">Give two positive changes that happened by the third day and explain one of them.</div>
+      <textarea id="c2"></textarea>
+    </div>
+    <div class="card q">
+      <div class="qhead"><div class="qnum">Q3</div><div class="marks">3 marks</div></div>
+      <div class="prompt">What does the phrase “the calm had followed them outside” suggest?</div>
+      <textarea id="c3"></textarea>
+    </div>
+    <div class="card q">
+      <div class="qhead"><div class="qnum">Q4</div><div class="marks">4 marks</div></div>
+      <div class="prompt">Explain why the school did not consider the experiment a failure even though some students still struggled.</div>
+      <textarea id="c4"></textarea>
+    </div>
+    <div class="card q">
+      <div class="qhead"><div class="qnum">Q5</div><div class="marks">4 marks</div></div>
+      <div class="prompt">In your own words, explain the final lesson of the passage.</div>
+      <textarea id="c5"></textarea>
+    </div>
+    <div class="card q">
+      <div class="qhead"><div class="qnum">Q6</div><div class="marks">4 marks</div></div>
+      <div class="prompt">How does the writer contrast students’ expectations with what actually happened?</div>
+      <textarea id="c6"></textarea>
+    </div>
+    <div class="manual"><b>Note:</b> Because comprehension answers can be phrased in many valid ways, this section uses a human-style rubric helper rather than pretending a keyword-only score is perfect.</div>
+    <div class="btnrow"><button onclick="gradeComprehension()">Grade Comprehension</button></div>
+    <div id="compScore" class="scorebox"></div>
+  </section>
+
+  <section id="creative">
+    <div class="card"><b>Creative Writing — 20 marks</b><div class="tiny">Choose ONE task. Aim for structure, clarity, detail and PEE where relevant.</div></div>
+    <div class="card">
+      <div class="qhead"><div class="qnum">Task A — Narrative</div><div class="marks">20 marks</div></div>
+      <div class="prompt">Write a narrative essay beginning with: <i>“The moment I opened the door, I knew something had changed.”</i></div>
+      <textarea id="cw" style="min-height:330px"></textarea>
+      <div class="tiny">Quick rubric: plot/sequence 5, organisation 4, vocabulary/detail 5, sentence control 3, ending/conclusion 3.</div>
+    </div>
+    <div class="btnrow"><button onclick="gradeCreative()">Grade Creative</button></div>
+    <div id="creativeScore" class="scorebox"></div>
+  </section>
+
+  <section id="secondary">
+    <div class="card"><b>Secondary English — Recall Tracker</b><div class="tiny">Meanings from Unit 9 Q3 have been removed as requested.</div></div>
+
+    <div class="card">
+      <p><b>Use your own textbook and type your answer in each box.</b> These are intentionally labeled by Unit + Question number because I don't have the exact textbook questions here.</p>
+    </div>
+
+    <div id="secList"></div>
+
+    <div class="card">
+      <div class="qhead"><div class="qnum">Self-mark</div><div class="marks">Not included in auto score</div></div>
+      <p>After checking against your book, put the marks you earned below.</p>
+      <input id="secSelf" type="text" placeholder="e.g. 15/17">
+    </div>
+  </section>
+
+  <div class="footer">
+    Tip: do the test closed-book. The purpose is to expose weak spots, not to produce a flattering score.
+  </div>
+</div>
+
+<script>
+function showTab(id, el){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function normalize(s){return (s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
+function box(id, html){
+  const el=document.getElementById(id); el.innerHTML=html; el.style.display='block';
+}
+function gradeGrammar(){
+  let score=0,total=16, details=[];
+  const answers={g1:'adjective',g2:'adverb',g3:'complex',g4:'compound',g5:'adverb',g6:'noun'};
+  Object.entries(answers).forEach(([name,ans])=>{
+    const el=document.querySelector(`input[name="${name}"]:checked`);
+    if(el && el.value===ans){score+=1;details.push(`<div class="result correct">${name.toUpperCase()} ✓</div>`)}
+    else details.push(`<div class="result incorrect">${name.toUpperCase()} ✗</div>`);
+  });
+  const g7=normalize(document.getElementById('g7').value);
+  if((g7.includes('although')||g7.includes('though')||g7.includes('even though')) && g7.includes('tired') && g7.includes('continued')) score+=2;
+  const g8=normalize(document.getElementById('g8').value);
+  if((g8.includes('but')||g8.includes('yet')||g8.includes('however')) && g8.includes('studied') && g8.includes('nervous')) score+=2;
+  const g9=normalize(document.getElementById('g9').value);
+  if(g9.includes('relative')) score+=2;
+  const g10=normalize(document.getElementById('g10').value);
+  const hits=['although','unless','although','until','before','when','while','because'];
+  let found=0; hits.forEach(x=>{if(g10.includes(x))found++});
+  score+=Math.min(4,found);
+  const pct=Math.round(score/total*100);
+  box('grammarScore',`<div class="scorebig">${score}/${total} (${pct}%)</div><div class="feedback">${details.join('')}</div>`);
+}
+function roughMarks(text, max){
+  const t=normalize(text);
+  if(!t) return 0;
+  let m=0;
+  const words=t.split(' ').filter(Boolean).length;
+  if(words>=45) m+=2;
+  if(words>=80) m+=1;
+  if(words>=120) m+=1;
+  if(words>=180) m+=1;
+  return Math.min(m,max);
+}
+function gradeComprehension(){
+  const qs=[
+    ['c1',2,['phone','messages','videos','distraction','silence','uncomfortable']],
+    ['c2',3,['finished work faster','not switching','enjoyed reading','no pressure']],
+    ['c3',3,['calm','quiet','continued','after','outside','behaviour']],
+    ['c4',4,['point','not every student','lesson','attention','removed distractions']],
+    ['c5',4,['protect attention','remove distractions','deliberately','try harder']],
+    ['c6',4,['expected','silence','teacher','pretending','instead','library','read','revise','phones']]
+  ];
+  let score=0, details=[];
+  qs.forEach(([id,max,keys])=>{
+    const txt=normalize(document.getElementById(id).value);
+    let hits=keys.filter(k=>txt.includes(k)).length;
+    let m=0;
+    if(txt.length>20)m=1;
+    if(hits>=2)m=Math.min(max,2);
+    if(hits>=4)m=Math.min(max,Math.max(m,3));
+    if(hits>=6)m=max;
+    if(max===2)m=Math.min(2,m);
+    score+=m;
+    details.push(`<div class="result ${m===max?'correct':m===0?'incorrect':''}">${id.toUpperCase()}: ${m}/${max}</div>`);
+  });
+  box('compScore',`<div class="scorebig">${score}/20</div><div class="feedback">${details.join('')}<div class="tiny" style="margin-top:10px">This is a quick rubric/keyword estimate. For final exam marking, a teacher-style judgement can differ.</div></div>`);
+}
+function gradeCreative(){
+  const t=normalize(document.getElementById('cw').value);
+  const words=t? t.split(' ').filter(Boolean).length:0;
+  let score=0, feedback=[];
+  if(words>=120){score+=5}else if(words>=80){score+=3}else if(words>=45){score+=2}
+  if(/[.!?]/.test(document.getElementById('cw').value))score+=3;
+  if(['then','after','before','when','suddenly','finally','later'].some(x=>t.includes(x)))score+=3;
+  if(['because','however','although','therefore','but'].some(x=>t.includes(x)))score+=2;
+  if(t.includes('door') && t.includes('changed'))score+=1;
+  if(t.split(' ').filter(Boolean).length>=8)score+=2;
+  if(t.includes('was')||t.includes('were'))score+=1;
+  if(t.includes('said')||t.includes('thought')||t.includes('felt'))score+=1;
+  score=Math.min(20,score);
+  feedback.push(`Length/coverage: ${Math.min(5, Math.floor(words/25))}/5`);
+  feedback.push(`Structure & sequencing: ${(['then','after','before','when','suddenly','finally','later'].some(x=>t.includes(x)))?3:1}/4`);
+  feedback.push(`Vocabulary/detail signals: ${(['felt','thought','looked','heard','dark','bright','cold','warm','quiet','loud'].filter(x=>t.includes(x)).length>=2)?4:2}/5`);
+  feedback.push(`Sentence control signals: ${(/[.!?]/.test(document.getElementById('cw').value))?2:1}/3`);
+  feedback.push(`Ending/completion signal: ${t.includes('finally')||t.includes('in the end')||t.includes('realized')?2:1}/3`);
+  box('creativeScore',`<div class="scorebig">${score}/20</div><div class="feedback">${feedback.map(x=>`<div class="result">${x}</div>`).join('')}<div class="tiny" style="margin-top:10px">This is an automated rubric estimate, not a true teacher/AI literary evaluation.</div></div>`);
+}
+const secondary = [
+  [9,[1,2,4,5,6]], [10,[1]], [11,[1,2,3,4,5,6]], [12,[1,2,3,4,5]]
+];
+const sec = document.getElementById('secList');
+secondary.forEach(([u,qs])=>{
+  const card=document.createElement('div'); card.className='card';
+  card.innerHTML=`<div class="qhead"><div class="qnum">Unit ${u}</div><div class="marks">${qs.length} questions</div></div>`;
+  qs.forEach(q=>{
+    const d=document.createElement('div'); d.style.marginTop='14px';
+    d.innerHTML=`<label><b>Unit ${u} — Q${q}</b></label><textarea placeholder="Write your answer from memory..."></textarea>`;
+    card.appendChild(d);
+  });
+  sec.appendChild(card);
+});
+</script>
+</body>
+</html>
